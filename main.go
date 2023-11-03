@@ -1,14 +1,15 @@
 package main
 
 import (
+	_ "embed"
 	"fyne.io/fyne/v2"
+	"fyne.io/fyne/v2/app"
 	"fyne.io/fyne/v2/canvas"
 	"fyne.io/fyne/v2/container"
 	"fyne.io/fyne/v2/layout"
-	"log"
-
-	"fyne.io/fyne/v2/app"
 	"fyne.io/fyne/v2/widget"
+	_ "image/png"
+	"log"
 )
 
 func main() {
@@ -16,7 +17,6 @@ func main() {
 	mainWindow := navigator.NewWindow("Navigator")
 	mainWindow.Resize(fyne.NewSize(1080, 720))
 
-	// text := widget.NewLabel("text 1")
 	buttons := container.New(layout.NewGridLayout(4), btnNavit(), btnCamera(), btnSensors(), btnQuit())
 	content := container.New(layout.NewCenterLayout(), buttons)
 
@@ -27,7 +27,7 @@ func main() {
 // buttons
 func btnNavit() *fyne.Container {
 	btn := widget.NewButton("", runNavit)
-	iconNavit := canvas.NewImageFromFile("imgs/navit-icon.png")
+	iconNavit := canvas.NewImageFromResource(resourceImgNavit)
 	iconNavit.FillMode = canvas.ImageFillOriginal
 	navitButton := container.New(layout.NewStackLayout(), btn, iconNavit)
 	return navitButton
@@ -35,7 +35,7 @@ func btnNavit() *fyne.Container {
 
 func btnCamera() *fyne.Container {
 	btn := widget.NewButton("", runCamera)
-	iconCamera := canvas.NewImageFromFile("imgs/camera-icon.png")
+	iconCamera := canvas.NewImageFromResource(resourceImgCamera)
 	iconCamera.FillMode = canvas.ImageFillOriginal
 	cameraButton := container.New(layout.NewStackLayout(), btn, iconCamera)
 	return cameraButton
@@ -43,7 +43,7 @@ func btnCamera() *fyne.Container {
 
 func btnQuit() *fyne.Container {
 	btn := widget.NewButton("", runQuit)
-	iconQuit := canvas.NewImageFromFile("imgs/quit-icon.png")
+	iconQuit := canvas.NewImageFromResource(resourceImgQuit)
 	iconQuit.FillMode = canvas.ImageFillOriginal
 	quitButton := container.New(layout.NewStackLayout(), btn, iconQuit)
 	return quitButton
@@ -51,7 +51,7 @@ func btnQuit() *fyne.Container {
 
 func btnSensors() *fyne.Container {
 	btn := widget.NewButton("", runSensors)
-	iconSensors := canvas.NewImageFromFile("imgs/sensors-icon.png")
+	iconSensors := canvas.NewImageFromResource(resourceImgSensors)
 	iconSensors.FillMode = canvas.ImageFillOriginal
 	sensorsButton := container.New(layout.NewStackLayout(), btn, iconSensors)
 	return sensorsButton
