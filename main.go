@@ -17,8 +17,10 @@ func main() {
 	mainWindow := navigator.NewWindow("Navigator")
 	mainWindow.Resize(fyne.NewSize(1080, 720))
 
+	background := canvas.NewImageFromResource(resourceImgMainBg)
+
 	buttons := container.New(layout.NewGridLayout(4), btnNavit(), btnCamera(), btnSensors(), btnQuit())
-	content := container.New(layout.NewCenterLayout(), buttons)
+	content := container.New(layout.NewCenterLayout(), buttons, background)
 
 	mainWindow.SetContent(content)
 	mainWindow.ShowAndRun()

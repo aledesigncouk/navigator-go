@@ -7,22 +7,22 @@ import (
 	_ "image/png"
 )
 
-//go:embed imgs/quit-icon.png
+//go:embed assets/quit-icon.png
 var imgQuitBin []byte
 
-//go:embed imgs/back-icon.png
+//go:embed assets/back-icon.png
 var imgBackBin []byte
 
-//go:embed imgs/camera-icon.png
+//go:embed assets/camera-icon.png
 var imgCameraBin []byte
 
-//go:embed imgs/navit-icon.png
+//go:embed assets/navit-icon.png
 var imgNavitBin []byte
 
-//go:embed imgs/back-icon.png
+//go:embed assets/sensors-icon.png
 var imgSensorsBin []byte
 
-//go:embed imgs/main_bg.gif
+//go:embed assets/main_bg.gif
 var imgMainBgBin []byte
 
 var resourceImgQuit = &fyne.StaticResource{
