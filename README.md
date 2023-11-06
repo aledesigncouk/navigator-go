@@ -8,13 +8,14 @@ A single dashboard that provide multiple functions and connect different control
 Is the core of a larger system composed by the following projects:
 
 - [Water Tank sensors](https://github.com/aledesigncouk/water-sensor)
-- [GPS Tracker board](https://github.com/aledesigncouk/gps_tracker) *
-- [GPS Tracker back end](https://github.com/aledesigncouk/gps-tracker-server) *
-- [GPS Tracker front end](https://github.com/aledesigncouk/gps-tracker-frontend) *
-- Canbus ECU integration **
+- [GPS Tracker board](https://github.com/aledesigncouk/gps_tracker) <sup>1</sup>
+- [GPS Tracker back end](https://github.com/aledesigncouk/gps-tracker-server) <sup>1</sup>
+- [GPS Tracker front end](https://github.com/aledesigncouk/gps-tracker-frontend) <sup>1</sup>
+- Canbus ECU integration <sup>2</sup>
 
-* not public for now
-** not started
+<sup>1</sup> not public for now
+
+<sup>2</sup> not started
 
 ### Hardware
 
@@ -37,8 +38,8 @@ The navigation is based on the Open Source project Navit.
 
 ### Schematics
 
-![alt text](./imgs/schematics.png)
-
 ### Blog updates
+
+[Blog](https://www.yoroxid.com/category/navigator/)
 
 ### Notes
