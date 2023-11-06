@@ -19,44 +19,23 @@ func main() {
 
 	background := canvas.NewImageFromResource(resourceImgMainBg)
 
-	buttons := container.New(layout.NewGridLayout(4), btnNavit(), btnCamera(), btnSensors(), btnQuit())
+	buttons := container.New(layout.NewGridLayout(4),
+		createBtn(resourceImgNavit, runNavit),
+		createBtn(resourceImgCamera, runCamera),
+		createBtn(resourceImgSensors, runSensors),
+		createBtn(resourceImgQuit, runQuit),
+	)
 	content := container.New(layout.NewCenterLayout(), buttons, background)
 
 	mainWindow.SetContent(content)
 	mainWindow.ShowAndRun()
 }
 
-// buttons
-func btnNavit() *fyne.Container {
-	btn := widget.NewButton("", runNavit)
-	iconNavit := canvas.NewImageFromResource(resourceImgNavit)
-	iconNavit.FillMode = canvas.ImageFillOriginal
-	navitButton := container.New(layout.NewStackLayout(), btn, iconNavit)
-	return navitButton
-}
-
-func btnCamera() *fyne.Container {
-	btn := widget.NewButton("", runCamera)
-	iconCamera := canvas.NewImageFromResource(resourceImgCamera)
-	iconCamera.FillMode = canvas.ImageFillOriginal
-	cameraButton := container.New(layout.NewStackLayout(), btn, iconCamera)
-	return cameraButton
-}
-
-func btnQuit() *fyne.Container {
-	btn := widget.NewButton("", runQuit)
-	iconQuit := canvas.NewImageFromResource(resourceImgQuit)
-	iconQuit.FillMode = canvas.ImageFillOriginal
-	quitButton := container.New(layout.NewStackLayout(), btn, iconQuit)
-	return quitButton
-}
-
-func btnSensors() *fyne.Container {
-	btn := widget.NewButton("", runSensors)
-	iconSensors := canvas.NewImageFromResource(resourceImgSensors)
-	iconSensors.FillMode = canvas.ImageFillOriginal
-	sensorsButton := container.New(layout.NewStackLayout(), btn, iconSensors)
-	return sensorsButton
+func createBtn(resource *fyne.StaticResource, action func()) *fyne.Container {
+	btn := widget.NewButton("", action)
+	image := canvas.NewImageFromResource(resource)
+	image.FillMode = canvas.ImageFillOriginal
+	return container.New(layout.NewStackLayout(), btn, image)
 }
 
 // actions
