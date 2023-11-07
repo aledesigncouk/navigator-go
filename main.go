@@ -25,7 +25,9 @@ func main() {
 		createBtn(resourceImgSensors, runSensors),
 		createBtn(resourceImgQuit, runQuit),
 	)
-	content := container.New(layout.NewCenterLayout(), buttons, background)
+	buttonArea := container.New(layout.NewCenterLayout(), buttons)
+
+	content := container.New(layout.NewStackLayout(), background, buttonArea)
 
 	mainWindow.SetContent(content)
 	mainWindow.ShowAndRun()
